@@ -7,7 +7,7 @@ services:
       - mongo_data:/data/db
 
   todo-backend:
-    build: ./backend
+    image: napatku/todo101-backend:latest
     ports:
       - "15000:15000"
     environment:
@@ -16,7 +16,7 @@ services:
       - mongo
 
   todo-frontend:
-    build: ./frontend
+    image: napatku/todo101-frontend:latest
     ports:
       - "3000:3000"
     depends_on:
