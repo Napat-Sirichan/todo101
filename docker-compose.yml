@@ -1,12 +1,10 @@
-version: "1.0"
-
 services:
   mongo:
     image: mongo
     ports:
       - "27017:27017"
     volumes:
-      - /Users/napat/Desktop/ske/isp/week1/todo101:/data/db
+      - mongo_data:/data/db
 
   todo-backend:
     build: ./backend
@@ -23,3 +21,6 @@ services:
       - "3000:3000"
     depends_on:
       - todo-backend
+
+volumes:
+  mongo_data:
