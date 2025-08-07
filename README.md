@@ -57,11 +57,19 @@ You need to install MongoDB separately or use MongoDB Atlas.
 
 ```
 todo101/
-├── backend/          # Node.js + Express API
-├── frontend/         # React application
-├── journal/          # MongoDB data directory
-└── docker-compose.yml
+├── backend/              # Node.js + Express API
+├── frontend/             # React application
+├── journal/              # MongoDB data directory
+├── docker-compose.yml    # Production (uses Docker Hub images)
+├── docker-compose.prod.yml # Development/CI (builds from source)
+└── .github/workflows/    # GitHub Actions CI/CD
 ```
+
+## Docker Hub Images
+
+The application is available as pre-built Docker images:
+- **Backend**: `napatku/todo101-backend:latest`
+- **Frontend**: `napatku/todo101-frontend:latest`
 
 ## Technologies Used
 

@@ -20,17 +20,17 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: 🛠️ Build and tag Docker images
+      - name: 🛠️ Build Docker images
         run: |
-          docker compose -f docker-compose.yml build
+          docker compose -f docker-compose.prod.yml build
 
-      - name: 🐳 Tag & Push Backend image
+      - name: 🐳 Tag and Push Backend image
         run: |
-          docker tag todo101-todo-backend ${{ secrets.DOCKER_USERNAME }}/todo-backend:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/todo-backend:latest
+          docker tag todo101-todo-backend:latest ${{ secrets.DOCKER_USERNAME }}/todo101-backend:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/todo101-backend:latest
 
-      - name: 🐳 Tag & Push Frontend image
+      - name: 🐳 Tag and Push Frontend image
         run: |
-          docker tag todo101-todo-frontend ${{ secrets.DOCKER_USERNAME }}/todo-frontend:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/todo-frontend:latest
+          docker tag todo101-todo-frontend:latest ${{ secrets.DOCKER_USERNAME }}/todo101-frontend:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/todo101-frontend:latest
 
