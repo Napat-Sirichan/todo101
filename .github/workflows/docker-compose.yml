@@ -26,11 +26,11 @@ jobs:
 
       - name: 🐳 Tag & Push Backend image
         run: |
-          docker tag todo101-todo-backend napat/todo-backend:latest
-          docker push napat/todo-backend:latest
+          docker tag todo101-todo-backend ${{ secrets.DOCKER_USERNAME }}/todo-backend:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/todo-backend:latest
 
       - name: 🐳 Tag & Push Frontend image
         run: |
-          docker tag todo101-todo-frontend napat/todo-frontend:latest
-          docker push napat/todo-frontend:latest
+          docker tag todo101-todo-frontend ${{ secrets.DOCKER_USERNAME }}/todo-frontend:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/todo-frontend:latest
 
